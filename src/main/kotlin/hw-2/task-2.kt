@@ -26,7 +26,7 @@ fun main() {
     val input = Scanner(System.`in`)
     var a = input.nextInt() // minutes
 
-    println("${a/360} год ${a%360/30} месяц")
+    println("${a/(365*24*60)} год ${a%(365*24*60)/(60*24*30)} месяц")
 
 
 }
