@@ -21,13 +21,13 @@ import kotlin.system.exitProcess
 fun main() {
 
     val input = Scanner(System.`in`)
-    var ai = input.nextInt()
-    var bi = input.nextInt()
-    var ci = input.nextInt()
-
-    var a=0
-    var b=0
-    var c=0
+    val ai = input.nextInt()
+    val bi = input.nextInt()
+    val ci = input.nextInt()
+//
+//    val a=0
+//    val b=0
+//    val c=0
 
     if (ai+bi<ci || ai>bi+ci || ai+ci<bi) {
         println("ERROR: Check your input. Wrong size")
@@ -36,30 +36,53 @@ fun main() {
 
 
     if ((ai >= bi && ai > ci) || (ai > bi && ai >= ci)) {
-        var a = ai
-        var b = bi
-        var c = ci
+        val a = ai
+        val b = bi
+        val c = ci
+
+        if (a*a == b*b +c*c ){
+            println("прямоуголный")
+        }
+        else if (a*a >= b*b +c*c ){
+            println("тупоуголный")
+        }
+        else if (a*a < b*b +c*c ){
+            println("остроуголный")
+        }
     }
 
     if ((bi >= ai && bi > ci) || (bi > ai && bi >= ci)) {
-        var a = bi
-        var b = ai
-        var c = ci
+        val a = bi
+        val b = ai
+        val c = ci
+
+        if (a*a == b*b +c*c ){
+            println("прямоуголный")
+        }
+        else if (a*a >= b*b +c*c ){
+            println("тупоуголный")
+        }
+        else if (a*a < b*b +c*c ){
+            println("остроуголный")
+        }
     }
 
     if ((ci >= ai && ci > bi) || (ci > ai && ci >= bi)) {
-        var a = ci
-        var b = bi
-        var c = ai
+        val a = ci
+        val b = bi
+        val c = ai
+
+        if (a*a == b*b +c*c ){
+            println("прямоуголный")
+        }
+        else if (a*a >= b*b +c*c ){
+            println("тупоуголный")
+        }
+        else if (a*a < b*b +c*c ){
+            println("остроуголный")
+        }
     }
 
-    if (a*a == b*b +c*c ){
-        println("прямоуголный")
-    }
-    else if (a*a >= b*b +c*c ){
-        println("тупоуголный")
-    }
-    else if (a*a < b*b +c*c ){
-        println("остроуголный")
-    }
+
+
  }
