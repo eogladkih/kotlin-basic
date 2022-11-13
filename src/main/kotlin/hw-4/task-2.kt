@@ -22,7 +22,7 @@ fun main() {
     var number = input.nextLong()
 
 
-    println(factorial(number))
+    println(if (number==0L) {1} else {factorial(number)})
 
 }
 
