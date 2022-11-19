@@ -6,11 +6,11 @@ import java.util.*
 
 fun main() {
     val input = Scanner(System.`in`)
-    var a1 = input.nextInt()
-    var a2 = input.nextInt()
-    var a3 = input.nextInt()
-    var a4 = input.nextInt()
+    val num1 = input.nextInt()
+    val num2 = input.nextInt()
+    val num3 = input.nextInt()
+    val num4 = input.nextInt()
 
-    val aaa = listOf(a1,a2,a3,a4)
-    println(aaa.min())
+    val numList = listOf(num1,num2,num3,num4)
+    println(numList.min())
 }

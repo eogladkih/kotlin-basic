@@ -12,7 +12,7 @@ import java.util.*
 
 fun main() {
     val input = Scanner(System.`in`)
-    var pass = input.nextLine()
+    val pass = input.nextLine()
 
 
     println(check(pass))

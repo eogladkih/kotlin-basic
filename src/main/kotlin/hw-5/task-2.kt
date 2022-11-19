@@ -11,15 +11,28 @@ import kotlin.math.sqrt
 
 fun main() {
     val input = Scanner(System.`in`)
-    var x1 = input.nextInt()
-    var x2 = input.nextInt()
-    var y1 = input.nextInt()
-    var y2 = input.nextInt()
+    val x1 = input.nextInt()
+    val x2 = input.nextInt()
+    val y1 = input.nextInt()
+    val y2 = input.nextInt()
 
+    println(coord(x1,x2,y1,y2))
 
-    println(sqrt(coord(x2,x1) + coord(y2,y1)))
 }
 
-fun coord(a: Int,b: Int): Double {
+fun coordCalc(a: Int,b: Int): Double {
     return (a.toDouble() - b.toDouble()).pow(2.0)
+}
+
+fun ckeckLimits(a: Int,b: Int,c: Int,d: Int): Boolean {
+    val coordList = listOf<Int>(a,b,c,d)
+    return coordList.all { -10000 < it && it < 10000}
+
+}
+
+fun coord(a: Int,b: Int,c: Int,d: Int): Any {
+    if (ckeckLimits(a,b,c,d)) {
+       return sqrt(coordCalc(b,a) + coordCalc(d,c))
+    }
+    return "check inserted numbers"
 }
