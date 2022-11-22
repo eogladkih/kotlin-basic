@@ -16,7 +16,7 @@ fun main() {
     val y1 = input.nextInt()
     val y2 = input.nextInt()
 
-    println(coord(x1,x2,y1,y2))
+    println(coord(x1,x2,y1,y2) ?: "points out of limits")
 
 }
 
@@ -30,9 +30,9 @@ fun ckeckLimits(a: Int,b: Int,c: Int,d: Int): Boolean {
 
 }
 
-fun coord(a: Int,b: Int,c: Int,d: Int): Any {
-    if (ckeckLimits(a,b,c,d)) {
-       return sqrt(coordCalc(b,a) + coordCalc(d,c))
-    }
-    return "check inserted numbers"
+fun coord(a: Int,b: Int,c: Int,d: Int): Double? {
+    if (!ckeckLimits(a, b, c, d))
+        return null
+    return sqrt(coordCalc(b, a) + coordCalc(d, c))
+
 }
