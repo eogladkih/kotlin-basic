@@ -1,5 +1,9 @@
 package `hw-7`
 
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.util.Date
+
 /*
 Необходимо перенести предложенное текстовое описание структуры класса в код,
 сохраняя все требовании и назавние полей или методов.
@@ -117,3 +121,132 @@ performPartialPayment(amount: Int): Unit
 Также должен быть перезаписан метод performPayment()
 Footer
 */
+
+enum class OrderStatus{
+    отправлен, `ждет оплаты`, оплачен, обрабатывается, получен
+}
+
+
+class Order(customer: Customer,details: OrderDetails, payment: Payment? ){
+    val date: LocalDate = LocalDate.now()
+    val status: OrderStatus = OrderStatus.получен
+
+
+    fun calcPrice(): Int {
+        return 1
+    }
+    fun calcWeight(): Int {
+        return 1
+    }
+    fun pay(payment: Payment): Unit {
+
+    }
+
+}
+
+class OrderDetails(items: List<OrderItem>) {
+
+    val location: String = ""
+
+    fun calcPrice(): Int {
+        return 1
+    }
+    fun calcWeight(): Int {
+        return 1
+    }
+    fun addItem(item: OrderItem): Unit {
+
+    }
+
+}
+
+class OrderItem(
+    name: String,
+    weight: Double,
+    price: Int ){
+
+    }
+
+class Customer(
+    val name: String,
+    val address: String?,
+    val orders: List<Order>){
+
+
+    fun calcPrice(): Int {
+        return 1
+    }
+    fun calcWeight(): Int {
+        return 1
+    }
+    fun addItem(item: OrderItem): Unit {}
+
+}
+
+
+enum class Currency{
+    rub, usd, eu, bhd, cuc, thb
+
+}
+
+enum class PaymentStatus{
+    `не оплачен`, `в обработке`, оплачен
+}
+
+
+abstract class Payment(
+    open val amount: Int,
+    open val currency: Currency){
+
+    lateinit var status: PaymentStatus
+
+    abstract fun performPayment(): Unit
+
+}
+
+class CashPayment(
+    val total: Int,
+    val change: Int,
+    override val amount: Int,
+    override val currency: Currency
+
+    ): Payment(amount, currency){
+
+
+
+    override fun performPayment() {}
+}
+
+class OnlinePayment(
+    val bankId: String,
+    val bankName: String,
+    override val amount: Int,
+    override val currency: Currency
+    ): Payment(amount, currency){
+
+
+    fun checkIfSucceed(): PaymentStatus {
+        return this.status
+    }
+
+    override fun performPayment() {
+
+    }
+}
+
+class DelayedPayment(
+    val endDate: Date,
+    val partAmount: String,
+    override val amount: Int,
+    override val currency: Currency
+    ): Payment(amount, currency) {
+
+
+    fun performPartialPayment(amount: Int): Unit {
+
+    }
+
+    override fun performPayment() {
+
+    }
+}
